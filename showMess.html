@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <title>信息显示</title>
+    <script src="jquery/jquery-2.2.2.min.js"></script>
+    <script src="jquery/jquery-2.2.2.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/showMess.css">
+</head>
+<script>
+    $(function() {
+        $("#content").hide();
+        var a = sessionStorage.mess;
+        if (a == undefined) {
+            alert("请先在搜索页面搜索信息");
+            window.location.href = "index.html";
+        } else {
+            $("#content").show();
+            var obj = JSON.parse(a);
+            $("#codecontent").text(obj[0]);
+            $("#shortnamecontent").text(obj[1]);
+            $("#longnamecontent").text(obj[2]);
+            $("#ifcontent").text(obj[3]);
+            $("#areacontent").text(obj[4]);
+            $("#statuscontent").text(obj[5]);
+
+        }
+    })
+</script>
+
+<body>
+<!-- ISSN刊号 刊名简写 刊名全称 最新影响因子 中科院大类分区 -->
+
+<div id="content">
+    <div id="pagetitle">
+        <span>职工书屋</span>
+    </div>
+    <div id="mess">
+        <div id="messTitle">
+            <div style="height: 40px; line-height: 40px; overflow: hidden;">信息</div>
+        </div>
+        <div style="width: 100%; height: 90%; margin-top: 15px;">
+            <div id="code">
+                <div id="codefont">&nbsp;&nbsp;编号&nbsp;:</div>
+                <font id="codecontent"></font>
+            </div>
+            <div id="shortname">
+                <div id="shortnamefont">&nbsp;&nbsp;书名&nbsp;:</div>
+                <font id="shortnamecontent"></font>
+            </div>
+            <div id="longname">
+                <div id="longnamefont">&nbsp;&nbsp;出版社&nbsp;:</div>
+                <font id="longnamecontent"></font>
+            </div>
+            <div id="if">
+                <div id="iffont">&nbsp;&nbsp;作者&nbsp;:</div>
+                <font id="ifcontent"></font>
+            </div>
+            <div id="area">
+                <div id="areafont">&nbsp;&nbsp;出版时间&nbsp;:</div>
+                <font id="areacontent"></font>
+            </div>
+            <div id="status">
+                <div id="statusfont">&nbsp;&nbsp;状态&nbsp;:</div>
+                <font id="statuscontent"></font>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tail">
+    <div id="copyRight">杭汽轮辅机</div>
+</div>
+</body>
+</html>
